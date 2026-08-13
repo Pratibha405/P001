@@ -1,0 +1,13 @@
+REVOKE ALL ON FUNCTION public.current_email() FROM PUBLIC, anon;
+REVOKE ALL ON FUNCTION public.has_business_role(UUID, public.app_role) FROM PUBLIC, anon;
+REVOKE ALL ON FUNCTION public.is_business_member(UUID) FROM PUBLIC, anon;
+REVOKE ALL ON FUNCTION public.is_business_internal(UUID) FROM PUBLIC, anon;
+REVOKE ALL ON FUNCTION public.can_view_invoice(UUID) FROM PUBLIC, anon;
+REVOKE ALL ON FUNCTION public.can_edit_invoice(UUID) FROM PUBLIC, anon;
+REVOKE ALL ON FUNCTION public.guard_invoice_update() FROM PUBLIC, anon, authenticated;
+GRANT EXECUTE ON FUNCTION public.current_email() TO authenticated;
+GRANT EXECUTE ON FUNCTION public.has_business_role(UUID, public.app_role) TO authenticated;
+GRANT EXECUTE ON FUNCTION public.is_business_member(UUID) TO authenticated;
+GRANT EXECUTE ON FUNCTION public.is_business_internal(UUID) TO authenticated;
+GRANT EXECUTE ON FUNCTION public.can_view_invoice(UUID) TO authenticated;
+GRANT EXECUTE ON FUNCTION public.can_edit_invoice(UUID) TO authenticated;
